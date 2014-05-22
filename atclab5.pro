@@ -8,6 +8,6 @@ SUBDIRS += \
     pluginmanager \
     instructiontask \
     consenttask \
-    scriptparser
+    scriptreader
 
 main.depends = statemachine pluginmanager
