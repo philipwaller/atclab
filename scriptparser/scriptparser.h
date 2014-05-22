@@ -1,9 +1,8 @@
 #ifndef SCRIPTPARSER_H
 #define SCRIPTPARSER_H
 
-#include "scriptparser_global.h"
 
-class SCRIPTPARSERSHARED_EXPORT ScriptParser
+class ScriptParser
 {
 
 public:
