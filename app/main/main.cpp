@@ -3,6 +3,7 @@
 #include "itaskfactory.h"
 #include "mainwindow.h"
 #include "pluginmanager.h"
+#include "scriptreader.h"
 #include "statechartbuilder.h"
 #include "task.h"
 #include "taskview.h"
@@ -11,6 +12,9 @@
 #include <QUuid>
 #include <QtDebug>
 
+#include <QFileDialog>
+#include <QMessageBox>
+
 
 void set_property(Task* task, const char *key, const QString& value);
 
@@ -18,6 +22,44 @@ void set_property(Task* task, const char *key, const QString& value);
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
     MainWindow w;
+
+    //
+    // Read Script
+    //
+
+    // :TODO:
+    // Build Script Handler Tree!
+
+    QString fileName = "/Users/phil/projects/atclab5/resouces/example.xml";
+/*
+    QString fileName = QFileDialog::getOpenFileName(
+                0,
+                QObject::tr("Open Script File"),
+                QDir::currentPath(),
+                QObject::tr("ATClab Files (*.atc *.xml)")
+            );
+   if (fileName.isEmpty()) return 1;
+*/
+   QFile file(fileName);
+   if (!file.open(QFile::ReadOnly|QFile::Text)) {
+       QMessageBox::warning(
+                   0,
+                   QObject::tr("ATClab Script"),
+                   QObject::tr("Cannot read file %1:\n%2.").arg(fileName).arg(file.errorString())
+           );
+       return 1;
+   }
+   ScriptReader reader;
+   if (!reader.read(&file)) {
+       QMessageBox::warning(
+                   0,
+                   QObject::tr("ATClab Script"),
+                   QObject::tr("Parse error in file %1\n%2.").arg(fileName).arg(reader.errorString())
+           );
+   }
+   return 1;
+
+
 
     //
     // Load Plugins

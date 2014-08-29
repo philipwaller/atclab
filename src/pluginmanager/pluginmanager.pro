@@ -22,4 +22,8 @@ unix:!symbian {
     INSTALLS += target
 }
 
-include(../plugininterface/plugininterface.pri)
+include($${SRCDIR}/plugininterface/plugininterface.pri)
+
+message("!")
+message("!  $${_PRO_FILE_}")
+message("!")

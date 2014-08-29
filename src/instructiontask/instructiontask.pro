@@ -11,8 +11,8 @@ QT      += widgets
 TARGET =    instructiontask
 TEMPLATE =  lib
 CONFIG +=   plugin c++11
-VERSION =   1.0.0
-DESTDIR =   ../main/atclab.app/Contents/PlugIns
+VERSION = $${CURRENT_VERSION}
+DESTDIR = $${PLUGIN}
 
 
 SOURCES += \
@@ -34,4 +34,8 @@ FORMS += \
     instructiontaskview.ui
 
 
-include(../plugininterface/plugininterface.pri)
+include($${SRCDIR}/plugininterface/plugininterface.pri)
+
+message("!")
+message("!  $${_PRO_FILE_}")
+message("!")

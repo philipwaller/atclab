@@ -1,6 +1,6 @@
 QT += widgets
 
-message($$PWD)
+# message($$PWD)
 
 INCLUDEPATH += $$PWD
 

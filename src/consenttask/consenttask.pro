@@ -11,8 +11,8 @@ QT       += widgets
 TARGET = consenttask
 TEMPLATE = lib
 CONFIG += plugin c++11
-VERSION = 1.0.0
-DESTDIR = ../main/atclab.app/Contents/PlugIns
+VERSION = $${CURRENT_VERSION}
+DESTDIR = $${PLUGIN}
 
 
 SOURCES += \
@@ -25,12 +25,16 @@ HEADERS += \
     consenttaskview.h \
     consenttaskfactory.h
 
+FORMS += \
+    consenttaskview.ui
+
 unix:!symbian {
     target.path = /usr/lib
     INSTALLS += target
 }
 
-include(../plugininterface/plugininterface.pri)
+include($${SRCDIR}/plugininterface/plugininterface.pri)
 
-FORMS += \
-    consenttaskview.ui
+message("!")
+message("!  $${_PRO_FILE_}")
+message("!")
