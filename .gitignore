@@ -2,11 +2,20 @@
 #
 #
 
-*.pro.user	# user specific - do NOT track
-*.pro.user*	# user specific - do NOT track
+#
+# Qt Creator
+#
+*.pro.user
+*.pro.user*
 
-.DS_Store	# MacOSX files
+#
+# MacOSX
+#
+.DS_Store
 
-[._]*.s[a-w][a-z]	# vim swap files
-[._]s[a-w][a-z]		# vim swap files
+#
+# vim swap files
+#
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
 
