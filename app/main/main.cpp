@@ -40,24 +40,24 @@ int main(int argc, char *argv[]) {
             );
    if (fileName.isEmpty()) return 1;
 */
-   QFile file(fileName);
-   if (!file.open(QFile::ReadOnly|QFile::Text)) {
-       QMessageBox::warning(
-                   0,
-                   QObject::tr("ATClab Script"),
-                   QObject::tr("Cannot read file %1:\n%2.").arg(fileName).arg(file.errorString())
-           );
-       return 1;
-   }
-   ScriptReader reader;
-   if (!reader.read(&file)) {
-       QMessageBox::warning(
-                   0,
-                   QObject::tr("ATClab Script"),
-                   QObject::tr("Parse error in file %1\n%2.").arg(fileName).arg(reader.errorString())
-           );
-   }
-   return 1;
+//   QFile file(fileName);
+//   if (!file.open(QFile::ReadOnly|QFile::Text)) {
+//       QMessageBox::warning(
+//                   0,
+//                   QObject::tr("ATClab Script"),
+//                   QObject::tr("Cannot read file %1:\n%2.").arg(fileName).arg(file.errorString())
+//           );
+//       return 1;
+//   }
+//   ScriptReader reader;
+//   if (!reader.read(&file)) {
+//       QMessageBox::warning(
+//                   0,
+//                   QObject::tr("ATClab Script"),
+//                   QObject::tr("Parse error in file %1\n%2.").arg(fileName).arg(reader.errorString())
+//           );
+//   }
+//   return 1;
 
 
 
@@ -110,6 +110,10 @@ int main(int argc, char *argv[]) {
     TaskView *consentView = consent_factory->createView();
     w.addView(consentView);
 
+    ITaskFactory *asd_factory = plugins.lookup("AsdTask");
+    TaskView *asdView = asd_factory->createView();
+    w.addView(asdView);
+
     Task* task;
 
     //
@@ -120,6 +124,10 @@ int main(int argc, char *argv[]) {
 //    task->setTimeout(5);
     task->setShortcut(Qt::Key_Return);
     task->setProperty("text", "Hello World!");
+    scb.addTask(task);
+
+    task = asd_factory->createTask(asdView, "Is that an aeroplane mummy?");
+    task->setTimeout(5);
     scb.addTask(task);
 
     task = instruction_factory->createTask(instructionView, "Introduction");

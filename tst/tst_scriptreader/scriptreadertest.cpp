@@ -31,7 +31,7 @@ void ScriptReaderTest::testCase1()
 {
     QFETCH(QString, data);
     QVERIFY2(true, "Failure");
-    QVERIFY2(false, "Failure");
+//    QVERIFY2(false, "Failure");
 }
 
 void ScriptReaderTest::testCase1_data()

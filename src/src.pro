@@ -5,6 +5,7 @@ SUBDIRS += \
     pluginmanager \
     instructiontask \
     consenttask \
+    asdtask \
     scriptreader
 
 message("!")

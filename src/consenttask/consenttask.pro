@@ -11,6 +11,7 @@ QT       += widgets
 TARGET = consenttask
 TEMPLATE = lib
 CONFIG += plugin c++11
+
 VERSION = $${CURRENT_VERSION}
 DESTDIR = $${PLUGIN}
 
