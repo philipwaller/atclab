@@ -15,12 +15,20 @@ CONFIG +=   staticlib
 SOURCES += \
     statechart.cpp \
     statechartbuilder.cpp \
-    stringtransition.cpp
+    stringtransition.cpp \
+    state.cpp \
+    interuptstate.cpp \
+    finalstate.cpp \
+    stringevent.cpp
 
 HEADERS += \
     statechart.h \
     statechartbuilder.h \
-    stringtransition.h
+    stringtransition.h \
+    state.h \
+    interuptstate.h \
+    finalstate.h \
+    stringevent.h
 
 unix:!symbian {
     target.path = /usr/lib

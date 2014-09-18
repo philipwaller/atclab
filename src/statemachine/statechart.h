@@ -2,11 +2,13 @@
 #define STATECHART_H
 
 
-#include <QObject>
-#include <QFinalState>
 #include <QStateMachine>
 
-
+//! The StateChart class provides a hierachical finite state machine.
+/*!
+  The StateChart is a state machine that manages a set of States and the
+  transitions between those states;
+ */
 class StateChart : public QStateMachine {
         Q_OBJECT
 
@@ -26,53 +28,6 @@ signals:
 
 };
 
-
-
-class State : public QState {
-    Q_OBJECT
-
-public:
-    explicit State(const QString &tag, QState *parent = 0)
-        : QState(parent) { setObjectName(tag); }
-    virtual ~State() {}
-
-protected:
-    void onEntry(QEvent *event);
-    void onExit(QEvent *event);
-
-};
-
-
-
-class InteruptState : public QState {
-    Q_OBJECT
-
-public:
-    explicit InteruptState(const QString &tag, QState *parent = 0)
-        : QState(parent) { setObjectName(tag); }
-    virtual ~InteruptState() {}
-
-protected:
-    void onEntry(QEvent *event);
-    void onExit(QEvent *event);
-
-};
-
-
-
-class FinalState : public QFinalState {
-    Q_OBJECT
-
-public:
-    explicit FinalState(const QString& tag, QState *parent = 0)
-        : QFinalState(parent) { setObjectName(tag); }
-    virtual ~FinalState() {}
-
-protected:
-    void onEntry(QEvent *event);
-    void onExit(QEvent *event);
-
-};
 
 
 

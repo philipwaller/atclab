@@ -2,6 +2,9 @@
 
 #include <QDebug>
 
+#include "finalstate.h"
+#include "interuptstate.h"
+#include "state.h"
 #include "stringtransition.h"
 #include "task.h"
 

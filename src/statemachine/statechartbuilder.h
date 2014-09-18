@@ -1,15 +1,18 @@
 #ifndef STATECHARTBUILDER_H
 #define STATECHARTBUILDER_H
 
+#include "statechart.h"
 
 #include <QString>
 
-#include "statechart.h"
 
 class QState;
 class QAbstractTransition;
 
 class Task;
+class State;
+class InteruptState;
+class FinalState;
 
 
 class StateChartBuilder

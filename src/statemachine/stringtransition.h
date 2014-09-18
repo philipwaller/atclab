@@ -6,18 +6,6 @@
 #include <QEvent>
 
 
-struct StringEvent : public QEvent {
-    static const int TYPE;
-
-    StringEvent(const QString &val)
-            : QEvent(QEvent::Type(TYPE))
-            , value(val)
-    {}
-
-    QString value;
-};
-
-
 
 
 class StringTransition : public QAbstractTransition {
